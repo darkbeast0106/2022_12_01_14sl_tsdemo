@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typescript Demo</title>
+    <script src="main.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Téglalapok</h1>
+    </header>
+    <main>
+        <form id="teglalap_form">
+            <h2>Új téglalap</h2>
+            <div>
+                <label for="input_a">a:</label>
+                <input type="number" id="input_a" placeholder="a">
+            </div>
+            <div>
+                <label for="input_b">b:</label>
+                <input type="number" id="input_b" placeholder="b">
+            </div>
+            <button type="submit">Hozzáad</button>
+            <button type="reset">Alaphelyzet</button>
+        </form>
+        <section>
+            <h2>Téglalapok</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>a</th>
+                        <th>b</th>
+                        <th>K</th>
+                        <th>T</th>
+                    </tr>
+                </thead>
+
+                <tbody id="teglalapok">
+
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <th>a</th>
+                        <th>b</th>
+                        <th>K</th>
+                        <th>T</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+    </main>
+    
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker
+                    .register("service-worker.js")
+                    .then((registration) => {
+                        console.log("Service Worker registered: ", registration);
+                    })
+                    .catch((registrationError) => {
+                        console.error("Service Worker registration failed: ", registrationError);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
